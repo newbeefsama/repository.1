@@ -10,7 +10,7 @@ int main(void)
     char e;
     do
     {
-            int d=0;
+            int d=1;
     srand(time(NULL));
     a=rand()%100+1;
     do
@@ -47,6 +47,7 @@ int main(void)
     else
     {
         printf("春完了兄弟\n");
+        printf("the answer is%d\n", a);
     }
     printf("do you want to play again?(y or o)\n");
     getchar();   
