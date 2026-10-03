@@ -1,46 +1,39 @@
 #include <stdio.h>
-int winput(void);
+int input(void);
 int main()
 {
     int n;
-    printf("input the number of students\n");
-    n = winput();
-    if (n <= 0)
+    printf("please input the number of students:");
+    n=input();
+    double score[n],aver,sum=0;
+    printf("please input the score of every student:\n");
+    for (int i=0;i<n;i++)
     {
-        printf("error");
-        return 0;
+        printf("%d.",i+1);
+        score[i]=input();
     }
-    int score[n];
-    printf("input the score of everybody\n");
-    for (int i = 0; i < n; i++)
+    for (int i=0;i<n;i++)
     {
-        printf("%d.", i + 1);
-        score[i] = winput();
-        if (score[i] < 0)
-        {
-            printf("error");
-            return 0;
-        }
+sum+=score[i];
     }
-    int total = 0;
-    for (int a = 0; a <= n - 1; a++)
-    {
-        total += score[a];
-    }
-    printf("the average score is %.2f\n", (float)total / n);
-    return 0;
-}
-int winput(void)
+    aver=(float)sum/n;
+    printf("the average score is:%f\n",aver);
+for (int i=0;i<n;i++)
 {
-    int value, ch;
-    printf("input a number: ");
-    while (scanf("%d", &value) != 1)
+    if (score[i]>aver)
     {
-        printf("input error,please input again:");
-        while ((ch = getchar()) != '\n' && ch != EOF)
-            ;
-        if (ch == EOF)
-            return -1;
+        printf("the score of NO.%d student is above the average score\n",i+1);
     }
-    return value;
+}
+return 0;
+}
+int input(void)
+{
+    double number;
+while((scanf("%lf",&number))!=1)
+{
+while(getchar()!='\n'||number<=0);
+printf("please input again:");
+}
+return number;
 }
