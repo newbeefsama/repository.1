@@ -1,0 +1,15 @@
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    int*result=(int*)malloc(2*sizeof(int));
+    for(int i=0;i<numsSize;i++)
+    for(int m=i+1;m<numsSize;m++)
+    {
+        if(nums[i]+nums[m]==target)
+        {
+            *returnSize=2;
+            result[0]=i;
+            result[1]=m;
+            return result;
+        }
+    }
+    return NULL;
+}
